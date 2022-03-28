@@ -24,4 +24,12 @@ public class Town extends Location {
     public void setCity(City city) {
         this.setParent(city);
     }
+
+    public String getPath() {
+        return this.getParent().getName() + ", "
+                + this.getParent().getName() + ", "
+                + this.getParent().getParent().getName() + ", "
+                + this.getParent().getParent().getParent().getName();
+    }
+
 }

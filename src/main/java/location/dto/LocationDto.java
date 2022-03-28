@@ -12,6 +12,7 @@ public class LocationDto {
         this.id = location.getId();
         this.name = location.getName();
         this.parentId = location.getParent() != null ? location.getParent().getId() : null;
+        this.path = location.getPath();
     }
 
     @Getter
@@ -25,4 +26,8 @@ public class LocationDto {
     @Getter
     @Setter
     private Long parentId;
+
+    @Getter
+    @Setter
+    private String path;
 }

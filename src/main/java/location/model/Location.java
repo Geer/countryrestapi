@@ -42,5 +42,25 @@ public abstract class Location {
         this.parent = parent;
     }
 
-
+    public String getPath() {
+        return this instanceof Town
+                ? this.getName() + ", "
+                + this.getParent().getName() + ", " //city
+                + this.getParent().getParent().getName() + ", " //county
+                + this.getParent().getParent().getParent().getName() + ", " //state
+                + this.getParent().getParent().getParent().getParent().getName()  //country
+                : this instanceof City
+                ? this.getName() + ", "
+                + this.getParent().getName() + ", " //county
+                + this.getParent().getParent().getName() + ", " //state
+                + this.getParent().getParent().getParent().getName() //country
+                : this instanceof County
+                ? this.getName() + ", "
+                + this.getParent().getName() + ", " //State
+                + this.getParent().getParent().getName()//Country
+                : this instanceof State
+                ? this.getName() + ", "
+                + this.getParent().getName() //Country
+                : null;
+    }
 }
