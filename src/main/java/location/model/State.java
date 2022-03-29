@@ -25,4 +25,5 @@ public class State extends Location {
     public void setCountry(Country country) {
         this.setParent(country);
     }
+
 }
